@@ -37,7 +37,7 @@ _This application takes a users age in Earth Years, and calculates their age rel
 ### Technologies Used
 
 * Backend: NodeJS, NPM, and webpack
-* Front-end: HTML, CSS, and JavaScript
+* Front-end: HTML, CSS, and JavaScript (w jQuery)
 * Automated Tests: Jasmin and Karma
 * Linter: eslint
 
