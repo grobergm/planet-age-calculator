@@ -1,6 +1,6 @@
 export class SpaceAge {
   constructor(birthday,gender,activity){
-    this.birthday=birthday
+    this.birthday=birthday;
     this.gender=gender;
     this.activity=activity;
   }
