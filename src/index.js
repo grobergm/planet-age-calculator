@@ -46,9 +46,6 @@ class SpaceAge {
     }
   }
 
-  // yearsRemaining(planet){
-  //   this.spaceYears(planet,this.age)
-  // }
 }
 
 const testDemo= new SpaceAge("1988","08","17","male","active");
