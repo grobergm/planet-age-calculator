@@ -18,20 +18,16 @@ export class SpaceAge {
   }
 
   lifeExpectancy(){
-  const age=this.calculateYears();
-  const femaleAve= 72.66;
-  const maleAve= 68.33;
-  const active= 7.2;
   let expected=0;
   if (this.activity==="active"){
-    expected+=active;
+    expected+=7.2;
   }
   if (this.gender==="male"){
-   expected+=maleAve;
+   expected+=68.33;
   } else if (this.gender==="female"){
-  expected+=femaleAve;
+  expected+=72.66;
   }
-  return expected-age;
+  return expected;
   }
 
   planetYears(planet,years){
@@ -44,5 +40,9 @@ export class SpaceAge {
     } else if (planet==="jupiter"){
       return years/11.86;
     }
+  }
+
+  lifePlanetExpect(planet){
+
   }
 }

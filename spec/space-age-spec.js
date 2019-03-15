@@ -7,17 +7,14 @@ describe('Space Age Calculator', function(){
   const diff=today-birthday;
   const years=diff/1000/60/60/24/365.2422;
   const age=years.toFixed(2);
-  const femaleAve= 72.66;
-  const maleAve= 68.33;
-  const active= 7.2;
   let expected=0;
   if (testDemo.activity==="active"){
-    expected+=active;
+    expected+=7.2;
   }
   if (testDemo.gender==="male"){
-   expected+=maleAve;
+   expected+=68.33;
  } else if (testDemo.gender==="female"){
-  expected+=femaleAve;
+  expected+=72.66;
   }
 
   it('takes in demograpnics and creates an instance of the SpaceAge constructor function',function(){
@@ -26,8 +23,8 @@ describe('Space Age Calculator', function(){
   it('calculates years based on birthday of instance',function(){
     expect(testDemo.calculateYears()).toEqual(age);
   });
-  it('calculates years remaining based on demographics',function(){
-    expect(testDemo.lifeExpectancy()).toEqual(expected-age);
+  it('calculates life expectancy based on demographics',function(){
+    expect(testDemo.lifeExpectancy()).toEqual(expected);
   });
   it('converts from earth years to the years of mercury, venus, mars, and jupiter',function(){
     const planets=["mercury","venus","mars","jupiter"];
