@@ -9,7 +9,7 @@ export class SpaceAge {
   this.activity=activity;
   }
 
-  calculateYears(){
+  calculateAge(){
   const today= new Date();
   const birthday= new Date(`${this.year}-${this.month}-${this.day}`);
   const diff=today-birthday;
@@ -45,6 +45,8 @@ export class SpaceAge {
   }
 
   lifePlanetExpect(planet){
-
+    const age=this.calculateAge();
+    const expect=this.lifeExpectancy();
+    return this.planetYears(planet,expect)-this.planetYears(planet,age);
   }
 }

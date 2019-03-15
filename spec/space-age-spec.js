@@ -7,6 +7,7 @@ describe('Space Age Calculator', function(){
   const diff=today-birthday;
   const years=diff/1000/60/60/24/365.2422;
   const age=years.toFixed(2);
+  const planets=["earth","mercury","venus","mars","jupiter"];
   let expected=0;
   if (testDemo.activity==="active"){
     expected+=7.2;
@@ -21,13 +22,12 @@ describe('Space Age Calculator', function(){
     expect(testDemo instanceof SpaceAge).toEqual(true);
   });
   it('calculates years based on birthday of instance',function(){
-    expect(testDemo.calculateYears()).toEqual(age);
+    expect(testDemo.calculateAge()).toEqual(age);
   });
   it('calculates life expectancy based on demographics',function(){
     expect(testDemo.lifeExpectancy()).toEqual(expected);
   });
   it('converts from earth years to the years of mercury, venus, mars, and jupiter',function(){
-    const planets=["earth","mercury","venus","mars","jupiter"];
     let randYears=Math.random()*100;
     planets.forEach(function(planet){
       if (planet==="earth"){
@@ -41,6 +41,23 @@ describe('Space Age Calculator', function(){
     } else if (planet==="jupiter"){
       expect(testDemo.planetYears(planet,randYears)).toEqual(randYears/=11.86);
       }
-    })
+    });
+  });
+  it('predicts life expectancy based on planet',function(){
+    const calcAge=testDemo.calculateAge();
+    const expectancy=testDemo.lifeExpectancy();
+    planets.forEach(function(planet){
+      if (planet==="earth"){
+      expect(testDemo.lifePlanetExpect(planet)).toEqual(expectancy-calcAge);
+    } else if (planet==="mercury"){
+      expect(testDemo.lifePlanetExpect(planet)).toEqual(expectancy/0.24-calcAge/0.24);
+    } else if (planet==="venus"){
+      expect(testDemo.lifePlanetExpect(planet)).toEqual(expectancy/0.62-calcAge/0.62);
+    } else if (planet==="mars"){
+      expect(testDemo.lifePlanetExpect(planet)).toEqual(expectancy/1.88-calcAge/1.88);
+    } else if (planet==="jupiter"){
+      expect(testDemo.lifePlanetExpect(planet)).toEqual(expectancy/11.86-calcAge/11.86);
+      }
+    });
   });
 });
