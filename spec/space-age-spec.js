@@ -18,7 +18,6 @@ function randomSample(){
   const randGender=genderArray[Math.round(Math.random())];
   const randActivity=activeArray[Math.round(Math.random())];
   const sample= new SpaceAge(strYear,strMonth,strDay,randGender,randActivity);
-  console.log(sample);
   return sample;
 }
 
