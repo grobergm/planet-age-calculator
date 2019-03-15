@@ -31,7 +31,9 @@ export class SpaceAge {
   }
 
   planetYears(planet,years){
-    if (planet==="mercury"){
+    if (planet==="earth"){
+      return years;
+    } else if (planet==="mercury"){
       return years/0.24;
     } else if (planet==="venus"){
       return years/0.62;

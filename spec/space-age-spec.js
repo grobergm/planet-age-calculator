@@ -27,10 +27,12 @@ describe('Space Age Calculator', function(){
     expect(testDemo.lifeExpectancy()).toEqual(expected);
   });
   it('converts from earth years to the years of mercury, venus, mars, and jupiter',function(){
-    const planets=["mercury","venus","mars","jupiter"];
+    const planets=["earth","mercury","venus","mars","jupiter"];
     let randYears=Math.random()*100;
     planets.forEach(function(planet){
-      if (planet==="mercury"){
+      if (planet==="earth"){
+      expect(testDemo.planetYears(planet,randYears)).toEqual(randYears);
+    } else if (planet==="mercury"){
       expect(testDemo.planetYears(planet,randYears)).toEqual(randYears/=0.24);
     } else if (planet==="venus"){
       expect(testDemo.planetYears(planet,randYears)).toEqual(randYears/=0.62);
