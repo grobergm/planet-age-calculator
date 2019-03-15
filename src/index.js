@@ -1,12 +1,11 @@
 import './styles.css';
 
 class SpaceAge {
-  constructor(year,month,day,gender,diet,activity){
+  constructor(year,month,day,gender,activity){
   this.year=year;
   this.month=month;
   this.day=day;
   this.gender=gender;
-  this.diet=diet;
   this.activity=activity;
   }
 
@@ -18,7 +17,24 @@ class SpaceAge {
   return years.toFixed(2);
   }
 
-  spaceYears(planet,years){
+  lifeExpectancy(){
+  const age=this.calculateYears();
+  const femaleAve= 72.66;
+  const maleAve= 68.33;
+  const active= 7.2;
+  let expected=0;
+  if (this.activity==="active"){
+    expected+=active;
+  }
+  if (this.gender==="male"){
+   expected+=maleAve;
+  } else if (this.gender==="female"){
+  expected+=femaleAve;
+  }
+  return expected-age;
+  }
+
+  planetYears(planet,years){
     if (planet==="mercury"){
       return years/0.24;
     } else if (planet==="venus"){
@@ -35,6 +51,6 @@ class SpaceAge {
   // }
 }
 
-const testDemo= new SpaceAge("1988","08","17","male","omnivore","regular");
+const testDemo= new SpaceAge("1988","08","17","male","active");
 
-console.log(testDemo.calculateYears());
+console.log("years left:"+ testDemo.lifeExpectancy());
