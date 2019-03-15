@@ -8,6 +8,8 @@ $(document).ready(function(){
     let birthday=$('#birthday').val();
     let gender=$('#gender').val();
     let activity=$('#activity').val();
-    console.log(birthday+gender+activity);
+    let newSpaceAge= new SpaceAge(birthday,gender,activity);
+    $("#result p").hide();
+    $("#result").append(`<p>${newSpaceAge.returnStatement("mercury")}</p><p>${newSpaceAge.returnStatement("venus")}</p><p>${newSpaceAge.returnStatement("earth")}</p><p>${newSpaceAge.returnStatement("mars")}</p><p>${newSpaceAge.returnStatement("jupiter")}</p>`);
   });
 });

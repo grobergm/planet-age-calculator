@@ -1,15 +1,13 @@
 export class SpaceAge {
-  constructor(year,month,day,gender,activity){
-    this.year=year;
-    this.month=month;
-    this.day=day;
+  constructor(birthday,gender,activity){
+    this.birthday=birthday
     this.gender=gender;
     this.activity=activity;
   }
 
   calculateAge(){
     const today= new Date();
-    const birthday= new Date(`${this.year}-${this.month}-${this.day}`);
+    const birthday= new Date(this.birthday);
     const diff=today-birthday;
     const years=diff/1000/60/60/24/365.2422;
     return years.toFixed(2);
