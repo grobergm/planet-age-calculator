@@ -1,8 +1,29 @@
 import {SpaceAge} from './../src/index.js';
+const today= new Date();
+
+function randomSample(){
+  const randomYear=today.getFullYear()-Math.floor(Math.random()*80);
+  const randomMonth=Math.ceil(Math.random()*12);
+  const randomDay=Math.ceil(Math.random()*28);
+  const strYear=randomYear.toString();
+  let strMonth;
+  if(randomMonth<10){
+    strMonth="0"+randomMonth.toString();
+  } else{
+    strMonth=randomMonth.toString();
+  }
+  const strDay=randomDay.toString();
+  const genderArray=["male","female"];
+  const activeArray=["inactive","active"];
+  const randGender=genderArray[Math.round(Math.random())];
+  const randActivity=activeArray[Math.round(Math.random())];
+  const sample= new SpaceAge(strYear,strMonth,strDay,randGender,randActivity);
+  console.log(sample);
+  return sample;
+}
 
 describe('Space Age Calculator', function(){
-  const testDemo= new SpaceAge("1988","08","17","male","active");
-  const today= new Date();
+  const testDemo= randomSample();
   const birthday= new Date(`${testDemo.year}-${testDemo.month}-${testDemo.day}`);
   const diff=today-birthday;
   const years=diff/1000/60/60/24/365.2422;
