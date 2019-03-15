@@ -28,5 +28,20 @@ describe('Space Age Calculator', function(){
   });
   it('calculates years remaining based on demographics',function(){
     expect(testDemo.lifeExpectancy()).toEqual(expected-age);
-  })
+  });
+  it('converts from earth years to the years of mercury, venus, mars, and jupiter',function(){
+    const planets=["mercury","venus","mars","jupiter"];
+    let randYears=Math.random()*100;
+    planets.forEach(function(planet){
+      if (planet==="mercury"){
+      expect(testDemo.planetYears(planet,randYears)).toEqual(randYears/=0.24);
+    } else if (planet==="venus"){
+      expect(testDemo.planetYears(planet,randYears)).toEqual(randYears/=0.62);
+    } else if (planet==="mars"){
+      expect(testDemo.planetYears(planet,randYears)).toEqual(randYears/=1.88);
+    } else if (planet==="jupiter"){
+      expect(testDemo.planetYears(planet,randYears)).toEqual(randYears/=11.86);
+      }
+    })
+  });
 });
