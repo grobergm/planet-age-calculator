@@ -17,13 +17,14 @@ function randomSample(){
   const activeArray=["inactive","active"];
   const randGender=genderArray[Math.round(Math.random())];
   const randActivity=activeArray[Math.round(Math.random())];
-  const sample= new SpaceAge(strYear,strMonth,strDay,randGender,randActivity);
+  const birthday= `${strYear}-${strMonth}-${strDay}`;
+  const sample= new SpaceAge(birthday,randGender,randActivity);
   return sample;
 }
 
 describe('Space Age Calculator', function(){
   const testDemo= randomSample();
-  const birthday= new Date(`${testDemo.year}-${testDemo.month}-${testDemo.day}`);
+  const birthday= new Date(testDemo.birthday)
   const diff=today-birthday;
   const years=diff/1000/60/60/24/365.2422;
   const age=years.toFixed(2);
