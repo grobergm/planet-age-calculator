@@ -49,4 +49,14 @@ export class SpaceAge {
     const expect=this.lifeExpectancy();
     return this.planetYears(planet,expect)-this.planetYears(planet,age);
   }
+
+  returnStatement(planet){
+    const planetDiff=this.lifePlanetExpect(planet);
+    if (planetDiff>=0){
+      return `You have ${planetDiff} years left to live on ${planet}`;
+    } else if(planetDiff<0){
+      return `You have lived ${-planetDiff} more years than we expected on ${planet}`;
+    }
+  }
+
 }

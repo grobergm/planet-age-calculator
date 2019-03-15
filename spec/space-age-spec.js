@@ -80,4 +80,8 @@ describe('Space Age Calculator', function(){
       }
     });
   });
+  it('returns a string summarizing their life expectancy on a planet',function(){
+    expect(typeof testDemo.returnStatement("earth")).toEqual("string");
+  });
+
 });
