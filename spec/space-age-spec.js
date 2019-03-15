@@ -1,4 +1,4 @@
-import {SpaceAge} from './../src/index.js';
+import {SpaceAge} from './../src/spaceAge.js';
 const today= new Date();
 
 function randomSample(){
