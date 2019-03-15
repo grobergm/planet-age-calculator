@@ -1,6 +1,6 @@
 import './styles.css';
 
-class SpaceAge {
+export class SpaceAge {
   constructor(year,month,day,gender,activity){
   this.year=year;
   this.month=month;
@@ -45,9 +45,4 @@ class SpaceAge {
       return years/11.86;
     }
   }
-
 }
-
-const testDemo= new SpaceAge("1988","08","17","male","active");
-
-console.log("years left:"+ testDemo.lifeExpectancy());
